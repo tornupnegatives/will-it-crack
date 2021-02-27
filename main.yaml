@@ -15,9 +15,5 @@ paths:
       responses:
         '200':
           description: Classification of password
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPU'
 servers:
   - url: 'http://localhost:8080/wic'
