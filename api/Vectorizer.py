@@ -1,6 +1,10 @@
 import pickle
 
 class Vectorizer:
+    def __init__(self, text):
+        self.vectorizer = TfidfVectorizer(tokenizer=self.tokenize)
+        self.vectorizer.fit(text)
+
     def __init__(self, filename):
         with open(filename, 'rb') as file:
             self.vectorizer = pickle.load(file)
