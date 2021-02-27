@@ -9,28 +9,15 @@ info:
   #license:
     #name: Apache
 paths:
-  /pwd_clsfr:
+  /pwd/<pwd>:
     get:
       tags:
-        - classify
-      operationId: os_pack.cpu_2020.get_processor_name
+        - CLASSIFY
+      operationId: api.request.rate_pwd
       description: Returns cpu information of the hosting server
       responses:
         '200':
-          description: 'CPU info, or add more text'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPU'
-  /sum/<x>/<y>:
-    get:
-      tags:
-        - SUM
-      operationId: os_pack.sum.sum
-      description: Returns cpu information of the hosting server
-      responses:
-        '200':
-          description: 'CPU info, or add more text'
+          description: 'Classification of password'
           content:
             application/json:
               schema:
