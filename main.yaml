@@ -3,11 +3,8 @@ info:
   version: 0.0-oas3
   title: Will It Crack
   description: Deep Neural Net for Password Strength Classification
-  #termsOfService: 'http://swagger.io/terms/'
   contact:
     name: Joseph Bellahcen
-  #license:
-    #name: Apache
 paths:
   /pwd/<pwd>:
     get:
@@ -17,19 +14,10 @@ paths:
       description: Returns cpu information of the hosting server
       responses:
         '200':
-          description: 'Classification of password'
+          description: Classification of password
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CPU'
 servers:
   - url: 'http://localhost:8080/wic'
-components:
-  schemas:
-    CPU:
-      type: object
-      required:
-        - model
-      properties:
-        model:
-          type: string
