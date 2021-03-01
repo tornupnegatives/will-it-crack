@@ -11,7 +11,7 @@ paths:
       tags:
         - CLASSIFY
       operationId: api.request.rate_pwd
-      description: Returns cpu information of the hosting server
+      description: Returns password classification (weak, medium, strong)
       responses:
         '200':
           description: Classification of password
