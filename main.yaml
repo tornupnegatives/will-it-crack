@@ -11,18 +11,18 @@ paths:
       tags:
         - CLASSIFY
       operationId: api.request.rate_pwd
-      description: Returns password classification (weak, medium, strong)
+      description: password classification (weak, medium, strong)
       responses:
         '200':
-          description: Classification of password
+          description: password classification (weak, medium, strong)
   /embedding/<pwd>:
     get:
       tags:
         - TOKENIZE
       operationId: api.request.tokenize
-      description: Returns TF-IDF tokenization of input string
+      description: TF-IDF tokenization of input string
       responses:
         '200':
-          description: Tokenization of password
+          description: TF-IDF tokenization of input string
 servers:
   - url: 'http://localhost:8080/wic'
