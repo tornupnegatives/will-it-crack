@@ -6,17 +6,31 @@ info:
   contact:
     name: Joseph Bellahcen
 paths:
-  /pwd/<pwd>:
+  /strength:
     get:
+      parameters:
+        - in: query
+          name: pwd
+          required: true
+          schema:
+            type: string
+            description: The user password
       tags:
         - CLASSIFY
       operationId: api.request.rate_pwd
-      description: password classification (weak, medium, strong)
+      description: Password classification (weak, medium, strong)
       responses:
         '200':
-          description: password classification (weak, medium, strong)
-  /embedding/<pwd>:
+          description: Password classification (weak, medium, strong)
+  /embedding:
     get:
+      parameters:
+        - in: query     #if it were /embedding/pwd then use in: path
+          name: pwd
+          required: true
+          schema:
+            type: string
+            description: The user password
       tags:
         - TOKENIZE
       operationId: api.request.tokenize
