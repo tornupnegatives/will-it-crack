@@ -1,10 +1,12 @@
 openapi: 3.0.0
+
 info:
   version: 0.0-oas3
   title: Will It Crack
   description: Deep Neural Net for Password Strength Classification
   contact:
     name: Joseph Bellahcen
+    
 paths:
   /strength:
     get:
@@ -22,10 +24,11 @@ paths:
       responses:
         '200':
           description: Password classification (weak, medium, strong)
+          
   /embedding:
     get:
       parameters:
-        - in: query     #if it were /embedding/pwd then use in: path
+        - in: query
           name: pwd
           required: true
           schema:
@@ -38,5 +41,6 @@ paths:
       responses:
         '200':
           description: TF-IDF tokenization of input string
+          
 servers:
   - url: 'http://localhost:8080/wic'
