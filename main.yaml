@@ -15,5 +15,14 @@ paths:
       responses:
         '200':
           description: Classification of password
+  /embedding/<pwd>:
+    get:
+      tags:
+        - TOKENIZE
+      operationId: api.request.tokenize
+      description: Returns TF-IDF tokenization of input string
+      responses:
+        '200':
+          description: Tokenization of password
 servers:
   - url: 'http://localhost:8080/wic'
