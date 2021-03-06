@@ -17,13 +17,27 @@ paths:
           schema:
             type: string
             description: The user password
+            
       tags:
         - CLASSIFY
       operationId: api.request.rate_pwd
       description: Password classification (weak, medium, strong)
+      
       responses:
         '200':
-          description: Password classification (weak, medium, strong)
+          description: Password succesfully classified
+          content:
+            text/plain:
+              schema:
+                description: Password classification (weak, medium, strong)
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Object identifier
+                  classification:
+                    type: string
+                    description: Weak, medium, or strong
           
   /embedding:
     get:
@@ -34,13 +48,32 @@ paths:
           schema:
             type: string
             description: The user password
+            
       tags:
         - TOKENIZE
       operationId: api.request.tokenize
-      description: TF-IDF tokenization of input string
+      description: Tokenized using TF-IDF for corpus
+      
       responses:
         '200':
           description: TF-IDF tokenization of input string
-          
+          content:
+            text/plain:
+              schema:
+                description: TF-IDF tokenization of input string
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Object identifier
+                  tokens:
+                    type: object
+                    description: Dictionary of token and TF-IDF score pairs
+                    properties:
+                      token:
+                        type: string
+                      score:
+                        type: number
+
 servers:
   - url: 'http://localhost:8080/wic'
