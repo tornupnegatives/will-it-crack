@@ -8,7 +8,7 @@ info:
     name: Joseph Bellahcen
     
 paths:
-  /strength:
+  /rate-pwd:
     get:
       parameters:
         - in: query
@@ -25,21 +25,13 @@ paths:
       
       responses:
         '200':
-          description: Password succesfully classified
+          description: Password classified
           content:
-            text/plain:
+            aplication/json:
               schema:
-                description: Password classification (weak, medium, strong)
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Object identifier
-                  classification:
-                    type: string
-                    description: Weak, medium, or strong
+                $ref: '#/components/schemas/Password'
           
-  /embedding:
+  /tokenize-pwd:
     get:
       parameters:
         - in: query
@@ -52,28 +44,44 @@ paths:
       tags:
         - TOKENIZE
       operationId: api.request.tokenize
-      description: Tokenized using TF-IDF for corpus
+      description: TF-IDF tokenization of input string from corpus
       
       responses:
         '200':
-          description: TF-IDF tokenization of input string
+          description: Password tokenized using TF-IDF for corpus
           content:
-            text/plain:
+            aplication/json:
               schema:
-                description: TF-IDF tokenization of input string
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Object identifier
-                  tokens:
-                    type: object
-                    description: Dictionary of token and TF-IDF score pairs
-                    properties:
-                      token:
-                        type: string
-                      score:
-                        type: number
+                $ref: '#/components/schemas/Tokenization'
 
 servers:
   - url: 'http://localhost:8080/wic'
+
+components:
+  schemas:
+    Password:
+      description: Password classification (weak, medium, strong)
+      type: object
+      properties:
+        id:
+          type: string
+          description: Object identifier
+        classification:
+          type: string
+          description: Weak, medium, or strong
+          
+    Tokenization:
+      description: TF-IDF tokenization of input string
+      type: object
+      properties:
+        id:
+          type: string
+          description: Object identifier
+        tokens:
+          type: object
+          description: Dictionary of token and TF-IDF score pairs
+          properties:
+            token:
+              type: string
+            score:
+              type: number
