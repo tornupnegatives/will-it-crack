@@ -27,7 +27,7 @@ paths:
         '200':
           description: Password classified
           content:
-            aplication/json:
+            application/json:
               schema:
                 $ref: '#/components/schemas/Password'
           
@@ -50,7 +50,7 @@ paths:
         '200':
           description: Password tokenized using TF-IDF for corpus
           content:
-            aplication/json:
+            application/json:
               schema:
                 $ref: '#/components/schemas/Tokenization'
 
