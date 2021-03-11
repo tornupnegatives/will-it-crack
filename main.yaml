@@ -8,7 +8,7 @@ info:
     name: Joseph Bellahcen
     
 paths:
-  /rate-pwd:
+  /strength:
     get:
       parameters:
         - in: query
@@ -31,7 +31,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Password'
           
-  /tokenize-pwd:
+  /embedding:
     get:
       parameters:
         - in: query
